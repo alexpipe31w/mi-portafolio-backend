@@ -2,6 +2,7 @@ import express from "express";
 import nodemailer from "nodemailer";
 import cors from "cors";
 import dotenv from "dotenv";
+
 dotenv.config();
 
 const app = express();
@@ -26,7 +27,7 @@ app.post("/send-email", async (req, res) => {
     // Correo que recibirás
     await transporter.sendMail({
       from: email,
-      to: "alexpipe31w@gmail.com", // destino (tu correo real)
+      to: "alexpipe31w@gmail.com", // tu correo real
       subject: `Nuevo mensaje de ${name}`,
       text: message,
       html: `<p><b>De:</b> ${name} (${email})</p><p>${message}</p>`,
@@ -39,5 +40,8 @@ app.post("/send-email", async (req, res) => {
   }
 });
 
-// Servidor
-app.listen(5000, () => console.log("Servidor corriendo en http://localhost:5000"));
+// Puerto dinámico para Render
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`🚀 Servidor corriendo en el puerto ${PORT}`);
+});
