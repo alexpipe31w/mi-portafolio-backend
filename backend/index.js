@@ -1,7 +1,7 @@
 import express from "express";
-import nodemailer from "nodemailer";
 import cors from "cors";
 import dotenv from "dotenv";
+import { Resend } from "resend";
 
 dotenv.config();
 
@@ -10,26 +10,17 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 // Ruta para recibir mensajes del frontend
 app.post("/send-email", async (req, res) => {
   const { name, email, message } = req.body;
 
   try {
-    // Transportador de correo (ejemplo con Gmail)
-    let transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
-
-    // Correo que recibirás
-    await transporter.sendMail({
-      from: email,
+    await resend.emails.send({
+      from: "Mi Portafolio <onboarding@resend.dev>", // puedes cambiar a tu dominio cuando lo verifiques
       to: "alexpipe31w@gmail.com", // tu correo real
       subject: `Nuevo mensaje de ${name}`,
-      text: message,
       html: `<p><b>De:</b> ${name} (${email})</p><p>${message}</p>`,
     });
 
