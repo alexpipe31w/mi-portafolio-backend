@@ -18,7 +18,7 @@ app.post("/send-email", async (req, res) => {
 
   try {
     await resend.emails.send({
-      from: "Mi Portafolio <onboarding@resend.dev>", // puedes cambiar a tu dominio cuando lo verifiques
+      from: "Mi Portafolio <onboarding@resend.dev>", 
       to: "alexpipe31w@gmail.com", // tu correo real
       subject: `Nuevo mensaje de ${name}`,
       html: `<p><b>De:</b> ${name} (${email})</p><p>${message}</p>`,
