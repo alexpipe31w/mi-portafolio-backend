@@ -72,7 +72,7 @@ PROYECTOS DESTACADOS:
 1. Frutaza E-commerce (Nov 2025 - Dic 2025)
    - Plataforma e-commerce full-stack para productos amazónicos
    - Stack: Next.js, React, TailwindCSS, Node.js, Shopify API
-   - Features: Integración Shopify Storefront API (headless commerce), scraping automatizado de TikTok con CRON jobs, chatbot con Dialogflow, gateway Mercado Pago, animaciones parallax
+   - Features: Integración Shopify Storefront API (headless commerce), scraping automatizado de TikTok con CRON jobs, chatbot con IA que habla sobre laa marca, gateway Mercado Pago, animaciones parallax
    - En producción atendiendo clientes reales
    - URL: https://www.frutaza.com.co/
 
@@ -81,6 +81,8 @@ PROYECTOS DESTACADOS:
    - Stack: React, TailwindCSS, JavaScript
    - Features: Módulo de simulación de inversión, formularios de contacto, integración redes sociales
    - URL: https://www.panelplussolar.com/
+   - Chatbot con IA integrado para atención al cliente
+   -Simulador de presupuestos energéticos
 
 3. FlyTours SaaS (Ene 2025 - Jul 2025)
    - Plataforma SaaS para agencias de viajes
@@ -99,6 +101,7 @@ PROYECTOS DESTACADOS:
    - Stack: React, Vite, TailwindCSS, TypeScript
    - Secciones: About, Resume, Portfolio, Blog, Contact
    - URL: https://alex-rodriguez-portfol.vercel.app/
+   -Chatbot con IA para responder preguntas sobre mi experiencia y proyectos
 
 EDUCACIÓN:
 
