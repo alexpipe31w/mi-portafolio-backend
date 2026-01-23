@@ -1,24 +1,31 @@
 {
+  "name": "portfolio-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "description": "Backend para portfolio con emails y chatbot",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "portfolio",
+    "backend",
+    "chatbot"
+  ],
+  "author": "Alex Felipe Rodríguez Palomino",
+  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
+    "groq-sdk": "^0.8.0",
     "nodemailer": "^7.0.6",
+    "resend": "^4.0.0",
     "uuid": "^8.3.2"
   },
-  "name": "backend",
-  "version": "1.0.0",
-  "main": "index.js",
   "devDependencies": {
     "nodemon": "^3.1.10"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "dev": "nodemon index.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  }
 }
