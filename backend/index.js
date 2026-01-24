@@ -107,7 +107,7 @@ EDUCACIÓN:
 
 Universitaria:
 - Ingeniería de Software - Universidad Fundación Escuela Tecnológica Jesús Oviedo Pérez (Cursando actualmente)
-- Técnico en Electrónica y Telecomunicaciones - Instituto Politécnico Americano (2023)
+- Técnico en Electrónica y Telecomunicaciones - Instituto Politécnico Americano (2023-2024)
 - Técnico en Electromecánica - Instituto Politécnico Americano (2023-2024)
 
 Diplomados y Certificaciones:
