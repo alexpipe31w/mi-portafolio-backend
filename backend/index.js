@@ -220,9 +220,12 @@ app.post("/api/chat", async (req, res) => {
     // Llamar a Groq
     const completion = await groq.chat.completions.create({
       messages: messages,
-      model: "llama-3.3-70b-versatile",
+      // llama-3.3-70b-versatile lo retiró Groq el 16-08-2026; este es su reemplazo recomendado.
+      model: "openai/gpt-oss-120b",
       temperature: 0.7,
-      max_tokens: 1024,
+      // gpt-oss razona antes de responder y ese razonamiento sale del mismo max_tokens.
+      reasoning_effort: "low",
+      max_tokens: 2000,
       top_p: 1,
     });
 
