@@ -8,6 +8,11 @@ import Groq from "groq-sdk";
 const PLAIN_TEXT_RULE =
   'Formato: el chat muestra texto plano, no Markdown. No uses asteriscos, almohadillas, tablas ni barras verticales; usa frases cortas, saltos de línea, guiones simples y emojis.';
 
+// Red de seguridad: aunque el prompt pide texto plano, gpt-oss a veces cuela negritas.
+function stripMarkdown(text) {
+  return text.replace(/\*\*(.+?)\*\*/g, '$1').replace(/^#{1,6}\s+/gm, '');
+}
+
 dotenv.config();
 
 const app = express();
@@ -73,12 +78,12 @@ IDIOMAS:
 
 PROYECTOS DESTACADOS:
 
-1. Frutaza E-commerce (Nov 2025 - Dic 2025)
+1. Frutatza E-commerce, antes Frutaza (Nov 2025 - Dic 2025)
    - Plataforma e-commerce full-stack para productos amazónicos
    - Stack: Next.js, React, TailwindCSS, Node.js, Shopify API
    - Features: Integración Shopify Storefront API (headless commerce), scraping automatizado de TikTok con CRON jobs, chatbot con IA que habla sobre laa marca, gateway Mercado Pago, animaciones parallax
    - En producción atendiendo clientes reales
-   - URL: https://www.frutaza.com.co/
+   - URL: https://www.frutatza.com/
 
 2. Panel Plus Solar (Ene 2024 - May 2024)
    - Sitio web corporativo con diseño responsive y SEO
@@ -126,7 +131,7 @@ Diplomados y Certificaciones:
 
 EXPERIENCIA LABORAL:
 
-Freelance Full-Stack Developer – Frutaza (Nov 2025 - Dic 2025):
+Freelance Full-Stack Developer – Frutatza (Nov 2025 - Dic 2025):
 - Diseño y desarrollo de plataforma e-commerce completa
 - Implementación Next.js con SSR y optimización SEO
 - Integración Shopify Storefront API (headless commerce)
@@ -235,7 +240,7 @@ ${PLAIN_TEXT_RULE}`
       top_p: 1,
     });
 
-    const responseText = completion.choices[0]?.message?.content || "Error al generar respuesta";
+    const responseText = stripMarkdown(completion.choices[0]?.message?.content || "Error al generar respuesta");
 
     console.log("✅ Respuesta del chatbot generada");
 
