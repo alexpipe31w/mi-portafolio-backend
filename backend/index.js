@@ -4,6 +4,10 @@ import dotenv from "dotenv";
 import { Resend } from "resend";
 import Groq from "groq-sdk";
 
+// gpt-oss responde con mucho Markdown y el widget lo pinta como texto plano.
+const PLAIN_TEXT_RULE =
+  'Formato: el chat muestra texto plano, no Markdown. No uses asteriscos, almohadillas, tablas ni barras verticales; usa frases cortas, saltos de línea, guiones simples y emojis.';
+
 dotenv.config();
 
 const app = express();
@@ -205,7 +209,9 @@ app.post("/api/chat", async (req, res) => {
     const messages = [
       {
         role: "system",
-        content: PORTFOLIO_CONTEXT
+        content: `${PORTFOLIO_CONTEXT}
+
+${PLAIN_TEXT_RULE}`
       },
       ...history.map((msg) => ({
         role: msg.role === "user" ? "user" : "assistant",
